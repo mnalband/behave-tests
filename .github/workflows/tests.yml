@@ -1,0 +1,36 @@
+Name: Run tests
+
+on:
+    pull_request: ~
+    push:
+      branches:
+        - master
+  
+jobs:
+    pre-commit:
+      name: Run pre-commit checks
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+          with:
+            fetch-depth: 1
+  
+        - uses: actions/setup-python@v1
+          with:
+            python-version: 3.8
+  
+        - run: pip install pre-commit
+        - run: pre-commit run --all-files
+  
+  
+    tests:
+      name: Run behave tests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+          with:
+            fetch-depth: 1
+        - name: Build docker image
+          run: docker build ./ -t behave
+        - name: Run tests
+          uses: docker://behave
