@@ -10,13 +10,13 @@ Feature: Use ruler for random calculations
         And Ruler start
         And Ruler continue '1' times
         And Input numbers are in range '20'
-    
+
     Scenario: Increase ruler range
         Given I want to increase ruler range 1 times
         Then I see range '30'
         And Input numbers are in range '30'
         And Ruler continue '2' times
-    
+
     Scenario: Decrease ruler range
         Given I want to decrease ruler range 2 times
         Then I see range '10'

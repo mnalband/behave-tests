@@ -15,7 +15,7 @@ RUN apt-get update \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends google-chrome-stable \
-    && rm -rf /var/lib/apt/lists/* \    
+    && rm -rf /var/lib/apt/lists/* \
     && curl $CHROME_DRIVER_TARBALL | zcat > /usr/local/bin/chromedriver \
     && chown root:root /usr/local/bin/chromedriver \
     && chmod 0755 /usr/local/bin/chromedriver \

@@ -14,4 +14,3 @@ Feature: Open main page
         And Second input is pre-filled with int
         And Operator is either + or -
         But Result input is empty
-

@@ -12,23 +12,28 @@ def step_impl(context):
     assert result
     context.result = result
 
+
 @then("Input correct answer")
 def step_impl(context):
     result = context.main_page.get_result_element()
     result.send_keys(context.result)
+
 
 @then("Input incorrect answer")
 def step_impl(context):
     result = context.main_page.get_result_element()
     result.send_keys("text")
 
+
 @then("Click submit")
 def step_impl(context):
     context.main_page.get_submit_element().click()
 
+
 @then("See happy elephant")
 def step_impl(context):
     assert context.main_page.get_good_result().is_displayed()
+
 
 @then("See angry monkey")
 def step_impl(context):
