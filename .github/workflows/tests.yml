@@ -33,4 +33,4 @@ jobs:
         - name: Build docker image
           run: docker build ./ -t behave
         - name: Run tests
-          uses: docker://behave
+          run: docker run behave
